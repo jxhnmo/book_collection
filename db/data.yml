@@ -1,0 +1,26 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - 2025-01-16 23:59:33.340112000 Z
+    - 2025-01-16 23:59:33.340115000 Z
+
+---
+books:
+  columns:
+  - id
+  - title
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - dune!
+    - 2025-01-17 00:03:12.114998000 Z
+    - 2025-01-17 00:03:12.114998000 Z
