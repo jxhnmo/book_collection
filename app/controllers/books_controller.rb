@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :set_book, only: %i[ show edit update destroy delete ]
 
   # GET /books or /books.json
   def index
@@ -13,10 +13,12 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    flash.notice = "New book created"
   end
 
   # GET /books/1/edit
   def edit
+    flash.notice = "Book Edited"
   end
 
   # POST /books or /books.json
@@ -49,12 +51,15 @@ class BooksController < ApplicationController
 
   # DELETE /books/1 or /books/1.json
   def destroy
-    @book.destroy!
+    @book.destroy
 
     respond_to do |format|
       format.html { redirect_to books_path, status: :see_other, notice: "Book was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def delete
   end
 
   private
@@ -65,6 +70,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title)
+      params.require(:book).permit(:title, :author, :price, :published_date)
     end
 end
